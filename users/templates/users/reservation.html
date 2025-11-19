@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule Appointment - {{ medecin.firstname }} {{ medecin.lastname }}</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'users/css/bootstrap.css' %}">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'users/css/reservation.css' %}">
+</head>
+<body>
+
+<div class="page-container">
+
+    {% include 'users/header.html' %}
+
+    <div class="content-wrap">
+        <div class="container">
+            <h2 class="mb-3">Schedule Your Appointment</h2>
+
+            <!-- Info médecin -->
+            <div class="doctor-info d-flex align-items-center mb-4">
+                <img src="{% static 'users/images/d1.jpg' %}" alt="Doctor" class="doctor-photo">
+                <div class="ms-3">
+                    <p class="mb-1"><strong>Dr. {{ medecin.first_name }} {{ medecin.last_name }}</strong></p>
+                    <p class="mb-0 text-muted">{{ medecin.specialty }}</p>
+                </div>
+            </div>
+
+            <!-- Formulaire réservation -->
+<form method="post" action="{% url 'verifier_user' medecin.id %}">
+    {% csrf_token %}
+
+    <!-- Date -->
+    <div class="mb-3">
+        <label for="date" class="form-label">Choose Date</label>
+        <input type="date" id="date" name="date" class="form-control" required>
+    </div>
+
+    <!-- Horaires Morning & Evening -->
+    <div class="mb-3">
+        <h4>Morning</h4>
+        <div class="row">
+            {% for horaire in horaires_mor %}
+            <div class="col-3">
+                <input type="radio" name="time" id="time{{ forloop.counter }}" value="{{ horaire }}" required>
+                <label for="time{{ forloop.counter }}">{{ horaire }}</label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h4>Evening</h4>
+        <div class="row">
+            {% for horaire in horaires_even %}
+            <div class="col-3">
+                <input type="radio" name="time" id="time{{ forloop.counter0|add:100 }}" value="{{ horaire }}" required>
+                <label for="time{{ forloop.counter0|add:100 }}">{{ horaire }}</label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="btn btn-primary w-100">Make an appointment</button>
+</form>
+
+        </div>
+    </div>
+
+    {% include 'users/footer.html' %}
+
+</div>
+
+</body>
+</html>

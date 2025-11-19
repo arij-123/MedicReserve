@@ -1,0 +1,33 @@
+.departments_section {
+  background-color: #f9f9f9;
+}
+
+.department_card {
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.department_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.department_card h4 {
+  color: #62d2a2;
+  font-weight: 600;
+}
+
+.department_card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.department_card .btn-primary {
+  background-color: #62d2a2;
+  border-color: #62d2a2;
+}
+
+.department_card .btn-primary:hover {
+  background-color: #4bb287;
+  border-color: #4bb287;
+}

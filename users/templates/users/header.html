@@ -1,0 +1,167 @@
+{% load static %}
+
+<!-- head section -->
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'users/images/favicon.png' %}" type="">
+
+  <title>Orthoc</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}">
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="{% static 'users/css/font-awesome.min.css' %}">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'users/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'users/css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <img src="{%static 'users/images/hero-bg.png'%}" alt="">
+    </div>
+
+    <!-- header section strats -->
+<!-- header section -->
+<header class="header_section">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <span>Orthoc</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item active"> 
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li> 
+          <li class="nav-item"><a class="nav-link" href="{% url 'departments' %}">Departments</a></li> 
+          <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li> 
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <span class="nav-link">👤 Bonjour, {{ user.first_name }} {{ user.last_name }}</span>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <span class="nav-link">Bonjour, invité 👋</span>
+            </li>
+          {% endif %}
+
+          <!-- Bouton Réserver -->
+          <li class="nav-item">
+            <a href="" class="btn custom-btn ms-3">Réserver un rendez-vous</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+  <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We Provide Best Healthcare
+                    </h1>
+                    <p>
+At MedicReserve, we are dedicated to delivering top-quality healthcare services with compassion, innovation, and excellence. 
+Our goal is to ensure your well-being through trusted professionals and modern medical solutions tailored to your needs.  </p>                  </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We Provide Best Healthcare
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We Provide Best Healthcare
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+</body>

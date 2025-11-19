@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctors - {{ specialty }}</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'users/css/bootstrap.css' %}">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'users/css/details.css' %}">
+
+</head>
+
+<body>
+
+{% include 'users/header.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<div class="container mt-4">
+    <h3 class="mb-3">Liste des Médecins</h3>
+
+    <table class="table-custom">
+
+        <thead>
+            <tr>
+                <th>Médecin</th>
+                <th>Gouvernorat</th>
+                <th>Localisation</th>
+                <th>Spécialité</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for med in medecins %}
+            <tr class="{% if forloop.first %}row-highlight{% endif %}">
+                
+                <!-- Photo + nom -->
+                <td>
+                    <img src="{% static 'users/images/d1.jpg' %}" class="doctor-img">
+                    {{ med.first_name }} {{ med.last_name }}
+                </td>
+
+                <!-- Gouvernorat -->
+                <td>{{ med.governorate }}</td>
+
+                <!-- Location -->
+                <td>{{ med.location }}</td>
+
+                <!-- Specialité -->
+                <td>{{ med.specialty }}</td>
+
+                <!-- Email -->
+                <td>{{ med.email }}</td>
+
+                <!-- Téléphone -->
+                <td>{{ med.phone }}</td>
+
+                <!-- Icône à droite -->
+                <td class="text-center">
+                    <i class="fa fa-chevron-circle-right icon-right"></i>
+                </td>
+<td class="text-center">
+
+    <!-- Bouton Réserver -->
+    <a href="{% url 'reserver_rdv' med.id %}" class="btn btn-primary btn-sm ms-2">
+        Réserver
+    </a>
+</td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+
+{% include 'users/footer.html' %}
+
+</body>
+</html>

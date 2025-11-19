@@ -1,0 +1,94 @@
+/* Layout général */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.content-wrap {
+    flex: 1;
+    padding: 40px 0;
+}
+.container {
+    max-width: 700px;
+}
+
+/* Info médecin */
+.doctor-info {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+.doctor-photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #62d2a2;
+}
+
+/* Horaires cards */
+.time-radio { display: none; }
+
+.time-card {
+    cursor: pointer;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 12px 0;
+}
+.time-card:hover {
+    background-color: #e9ecef;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.time-radio:checked + .time-card {
+    background-color: #62d2a2;
+    color: white;
+    border-color: #62d2a2;
+    box-shadow: 0 6px 15px rgba(98,210,162,0.3);
+    transform: scale(1.05);
+}
+
+/* Morning / Evening headers */
+h4.time-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #62d2a2;
+    border-bottom: 2px solid #62d2a2;
+    padding-bottom: 3px;
+    font-weight: bold;
+}
+
+/* Bouton */
+.btn-primary {
+    background-color: #62d2a2 !important;
+    color: #ffffff !important;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+        border-color:#62d2a2 !important;
+
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: transparent !important;
+    color: #62d2a2 !important;
+    border: 1px solid #62d2a2 !important;
+    transform: translateY(-2px);
+}
+
+
+

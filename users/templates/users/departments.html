@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments - Orthoc</title>
+  <link rel="stylesheet" href="{% static 'users/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+</head>
+
+<body>
+
+  {% include 'users/header.html' %}
+
+  <!-- Hero Section -->
+  <section class="hero_section">
+    <div class="container text-center my-5">
+      <h1>Our Departments</h1>
+      <p>Explore our specialized medical departments for comprehensive healthcare</p>
+    </div>
+  </section>
+
+  <!-- Departments Grid -->
+  <section class="departments_section py-5">
+    <div class="container">
+      <div class="row">
+
+        <!-- Department Card -->
+            {% for medecin in medecins %}
+        <div class="col-md-4 mb-4">
+          <div class="department_card text-center p-4 shadow-sm rounded">
+            <img src="{% static 'users/images/favicon.png' %}" alt="Cardiology" class="mb-3" width="80">
+         <h4>{{ medecin.specialty }}</h4>
+          <p><strong>Description :</strong> {{ medecin.description }}</p>
+<a href="{% url 'details' medecin.specialty %}" class="btn btn-primary mt-2">
+  Learn More
+</a>
+          </div>
+        </div>
+
+       
+{% empty %}
+      <p class="text-center">Aucun médecin trouvé.</p>
+            {% endfor %}
+
+
+      </div>
+    </div>
+  </section>
+
+  {% include 'users/footer.html' %}
+
+</body>
+</html>
