@@ -19,7 +19,7 @@ class Medecin(models.Model):
         return f"{self.first_name} {self.last_name} ({self.specialty})"
 
     class Meta:
-        managed = False  # ❗ Django ne crée/modifie pas la table
+      #  managed = False  # ❗ Django ne crée/modifie pas la table
         db_table = 'medecin'  # nom exact de ta table dans pgAdmin
 
     def __str__(self):
